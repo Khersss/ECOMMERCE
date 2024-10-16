@@ -1,6 +1,4 @@
-<?php require_once("includes/header.php")?>
-
-    <!-- Navbar -->
+    <?php require_once("includes/header.php")?>
     <?php require_once("includes/navbar.php")?>
 
     <!-- Registration Form -->
@@ -12,23 +10,20 @@
                         <h4>Create Your Account</h4>
                     </div>
                     <div class="card-body">
-
-                    
                     <?php if(isset($_GET["success"])){?>
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong><?php echo $_GET["success"]; ?></strong> 
+                     <strong><?php echo $_GET["success"]; ?></strong> 
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <?php } ?>
+                            </div>
+                            <?php } ?>
 
-                    <?php if(isset($_GET["error"])){?>
+                            <?php if(isset($_GET["error"])){?>
+
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <form action="authRegister.php" method="POST">
-                        <strong> <?php echo $_GET["error"]; ?></strong> 
+                     <strong>  <strong><?php echo $_GET["error"]; ?></strong> </strong> 
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <?php }?>
-
+                            </div>
+                                <?php } ?>
 
                         <form action="authRegister.php" method="POST">
                             <div class="mb-3">
@@ -36,8 +31,8 @@
                                 <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter your full name" required>
                             </div>
                             <div class="mb-3">
-                                <label for="email" class="form-label">Username</label>
-                                <input type="email" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+                                <label for="username" class="form-label">Email Address</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
@@ -61,4 +56,5 @@
     </div>
 
     <?php require_once("includes/footer.php")?>
-
+</body>
+</html>
