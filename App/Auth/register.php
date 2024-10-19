@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $fullName = $_POST["fullName"];
     $username = $_POST["username"];
     $password = $_POST["password"];
@@ -29,28 +30,30 @@
                 $stmt->bindParam(':p_username', $username);
                 $stmt->bindParam(':p_password', $password);
 
-
                 $password = password_hash(trim($password),PASSWORD_BCRYPT);
                
                 if($stmt->execute()){
-                    header("location: /registration.php?success=Registration successful");
+                    header("location: /registration.php");
+                    $_SESSION["success"] = "Registration Successful";
                     exit;
                   
                 }else{
-                    header("location: /registration.php?error=Insert Error");
+                    header("location: /registration.php");
+                    $_SESSION["error"] = "Insert Error";
                     exit;
                 }
 
             } catch (Exception $e){
-                header("location: /registration.php?error=Username Already Existing");
+                header("location: /registration.php");
+                $_SESSION["error"] = "Username Already Existing";
             }
         }
             else
             {
-                header("location: /registration.php?error=Password Mismatch");
+                header("location: /registration.php");
+                $_SESSION["error"] = "Password Mismatch";
                 exit;
             }          
        
         //INSERT RECORD
         }
-    ?>

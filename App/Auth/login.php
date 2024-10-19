@@ -22,16 +22,31 @@
                 $stmt->bindParam(':p_username', $username);
                 $stmt->execute();
                 $users = $stmt->fetchAll();
+                
                 if($users){ 
-                  if(password_verify($password,$users[0]["password"]))
-                     echo"login successfully";
-                     $_SESSION["fullName"] = $users[0]["fullname"];
+                if(password_verify($password,$users[0]["password"])){
+                    header("location: /index.php?");
+                    //echo"login successfully";
+                    $_SESSION["fullName"] = $users[0]["fullname"];
+                    exit;
                 }else{
-                    echo "password did not match";
+                    header("location: /login.php?");
+                    $_SESSION["error"] = "password not match";
+                    exit;
+                    //echo "password did not match";
                 }
                 
+                }else{
+                    header("location: /login.php?");
+                    $_SESSION["error"] = "User not found";
+                    exit;
+                    //echo "password did not match";
+                }
+                    
+                
             } catch (Exception $e){
-                header("location: /registration.php?error=Username Already Existing");
+                echo "Connection failed: ".$e->getMessage();
+                exit;
             }
         } 
     ?>
