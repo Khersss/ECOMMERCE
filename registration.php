@@ -8,14 +8,15 @@
         $messErr = $_SESSION["error"];
         unset($_SESSION["error"]);
     }
-    ?>
-    <?php require_once("includes/navbar.php");
     if(isset($_SESSION["success"]))
     {
         $messSucc = $_SESSION["success"];
         unset($_SESSION["success"]);
     }
     ?>
+
+    <!-- Navbar -->
+    <?php require_once("includes\\navbar.php"); ?> 
 
     <!-- Registration Form -->
     <div class="container content my-5">
