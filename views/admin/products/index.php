@@ -4,20 +4,19 @@ session_start();
 require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
 require_once(ROOT_DIR."includes\header.php");
 
-if(isset($_SESSION["mali"])){
-    $messErr = $_SESSION["mali"];
-    unset($_SESSION["mali"]);
+if(isset($_SESSION["error"])){
+    $messErr = $_SESSION["error"];
+    unset($_SESSION["error"]);
 }
-if(isset($_SESSION["tama"])){
-    $messSuc = $_SESSION["tama"];
-    unset($_SESSION["tama"]);
+if(isset($_SESSION["success"])){
+    $messSuc = $_SESSION["success"];
+    unset($_SESSION["success"]);
 }
 
 include(ROOT_DIR. "app/product/get_product.php")
 ?>
-<?php
-require_once(ROOT_DIR."includes\\navbar.php");
-?>
+
+<?php require_once(ROOT_DIR."includes/navbar.php"); ?>
     <!-- page guard  -->
     <?php require_once(ROOT_DIR."views/components/page-guard.php"); ?>
     
@@ -31,8 +30,8 @@ require_once(ROOT_DIR."includes\\navbar.php");
 
         <?php if(isset($messSuc)){ ?>
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong><?php echo $messSuc; ?></strong> 
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <strong><?php echo $messSuc; ?></strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             <?php } ?>
 

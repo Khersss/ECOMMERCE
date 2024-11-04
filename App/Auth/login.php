@@ -26,9 +26,10 @@
                         $_SESSION['username'] = $users[0]['username'];
                         $_SESSION['fullname'] = $users[0]['fullname'];
                         $_SESSION['is_admin'] = $users[0]['is_admin'];
-                    
-                        header("location: /index.php?");
-                        exit;
+
+                        $_SESSION["success"]="Registration successful";
+                        header("location: /index.php");
+                        exit;                   
 
                     }else{
                         header("location: /login.php?");
@@ -47,7 +48,6 @@
                 
             } catch (Exception $e){
                 echo "Connection failed: ".$e->getMessage();
-                exit;
             }
         } 
     ?>

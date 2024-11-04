@@ -1,5 +1,6 @@
 <?php
-if(!isset($_SESSION)){
+if(!isset($_SESSION))
+{
     session_start();
 }
 
@@ -19,45 +20,44 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $description = htmlspecialchars($_POST["description"]);
     
      //validate user input
-    
     if (trim($productName) == "" || empty($productName)) { 
-        $_SESSION["mali"] = "Product Name field is empty";
+        $_SESSION["error"] = "Product Name field is empty";
         header("location: ".BASE_URL."views/admin/products/add.php");
         exit;
     }
     
     if (trim($category) == "" || empty($category)) { 
-        $_SESSION["mali"] = "Category field is empty";
+        $_SESSION["error"] = "Category field is empty";
         header("location: ".BASE_URL."views/admin/products/add.php");
         exit;
     }
     
     if (trim($basePrice) == "" || empty($basePrice)) { 
-        $_SESSION["mali"] = "Base Price field is empty";
+        $_SESSION["error"] = "Base Price field is empty";
         header("location: ".BASE_URL."views/admin/products/add.php");
         exit;
     }
     
     if (trim($numberOfStocks) == "" || empty($numberOfStocks)) { 
-        $_SESSION["mali"] = "Number of Stocks field is empty";
+        $_SESSION["error"] = "Number of Stocks field is empty";
         header("location: ".BASE_URL."views/admin/products/add.php");
         exit;
     }
     
     if (trim($unitPrice) == "" || empty($unitPrice)) { 
-        $_SESSION["mali"] = "Unit Price field is empty";
+        $_SESSION["error"] = "Unit Price field is empty";
         header("location: ".BASE_URL."views/admin/products/add.php");
         exit;
     }
     
     if (trim($totalPrice) == "" || empty($totalPrice)) { 
-        $_SESSION["mali"] = "Total Price field is empty";
+        $_SESSION["error"] = "Total Price field is empty";
         header("location: ".BASE_URL."views/admin/products/add.php");
         exit;
     }
     
     if (trim($description) == "" || empty($description)) { 
-        $_SESSION["mali"] = "Description field is empty";
+        $_SESSION["error"] = "Description field is empty";
         header("location: ".BASE_URL."views/admin/products/add.php");
         exit;
     }

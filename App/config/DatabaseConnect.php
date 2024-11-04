@@ -1,6 +1,4 @@
 <?php 
-
-
 class DatabaseConnect {
     private $host = "localhost";
     private $database = "ecommb2";

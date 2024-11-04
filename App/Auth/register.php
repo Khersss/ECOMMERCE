@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $fullName = $_POST["fullName"];
+    $fullname = $_POST["fullName"];
     $username = $_POST["username"];
     $password = $_POST["password"];
     $confirmPassword = $_POST["confirmPassword"];
@@ -9,7 +9,6 @@
     {
         if(trim($password) == trim($confirmPassword))
         {  
-            //CONNECT DATABASE
             $host = "localhost";
             $database = "ecommb2";
             $dbuserame = "root";
@@ -46,9 +45,8 @@
         }
         else{
             header("location: /registration.php");
-            $_SESSION["mali"]="Insert error";
+            $_SESSION["error"]="Insert error";
             exit;
-            }
-                        
+        }              
     }
 ?>

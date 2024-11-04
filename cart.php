@@ -4,9 +4,7 @@
     session_start();
     ?>
 
-    <?php
-    require_once("includes\\navbar.php");
-    ?>
+    <?php require_once("includes/navbar.php"); ?>
 
     <!-- Shopping Cart -->
     <div class="container content my-5">
