@@ -1,9 +1,9 @@
     <?php 
-    session_start();
-    require_once("includes/header.php")?>
+    require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
+    require_once("includes\header.php");
+    session_start(); ?>
     <!-- Navbar -->
-   <?php require_once("includes/navbar.php")?>
-
+    <?php require_once("includes/navbar.php")?>
 
     <!-- Hero Section -->
     <div class="container-fluid bg-primary text-white text-center py-5">

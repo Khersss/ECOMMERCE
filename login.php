@@ -1,6 +1,8 @@
     <?php 
     session_start();
+    require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
     require_once("includes/header.php");
+    
     if(isset($_SESSION["error"]))
     {
         $messErr = $_SESSION["error"];
@@ -10,7 +12,6 @@
    
     <!-- Navbar -->
     <?php require_once("includes/navbar.php")?>
-    
 
     <!-- Login Form -->
     <div class="container content mt-5">
@@ -21,14 +22,12 @@
                         <h4>Login to Your Account</h4>
                     </div>
                     <div class="card-body">                       
-
-                                <?php if(isset($messErr)){?>
-
+                        <?php if(isset($messErr)){?>
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong>  <strong><?php echo $messErr; ?></strong> </strong> 
+                            <strong>  <strong><?php echo $messErr; ?></strong> </strong> 
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                                    <?php } ?>
+                        </div>
+                        <?php } ?>
 
                         <form action="App/Auth/login.php" method="POST">
                             <div class="mb-3">
@@ -56,5 +55,3 @@
     
 
     <?php require_once("includes/footer.php")?>
-</body>
-</html>

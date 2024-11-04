@@ -1,3 +1,24 @@
+<?php
+session_start();
+require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
+require_once(ROOT_DIR."includes/header.php");
+if(isset($_SESSION["error"])){
+    $messErr = $_SESSION["error"];
+    unset($_SESSION["error"]);
+}
+if(isset($_SESSION["success"])){
+    $messSuc = $_SESSION["success"];
+    unset($_SESSION["success"]);
+}
+   
+?>
+
+<?php
+require_once(ROOT_DIR."includes/navbar.php");
+?>
+
+<?php require_once(ROOT_DIR."/views/components/page-guard.php"); ?>  
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +60,7 @@
             </div>
         </div>
     </nav>
-
+    <?php require_once(__DIR__."/../../components/page-guard.php"); ?>
     <!-- Product Maintenance Form -->
     <div class="container my-5">
         <h2>Product Maintenance</h2>
@@ -114,6 +135,32 @@
     </div>
 
     <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script>
+    const fileInput = document.getElementById('productImage');
+    const imagePreview = document.getElementById('imagePreview');
+
+    fileInput.addEventListener('change', function(event) {
+        const file = event.target.files[0]; // Get the selected file
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = 'block'; // Show the image
+            }
+
+            reader.readAsDataURL(file);
+        }
+    });
+
+    function calculateTotalPrice() {
+        const unitPrice = document.getElementById("unitPrice").value;
+        const numberOfStocks = document.getElementById("numberOfStocks").value;
+        const totalPrice = unitPrice * numberOfStocks;
+        document.getElementById("totalPrice").value = totalPrice.toFixed(2);
+    }
+</script>    
+    <!-- Bootstrap 5 JS Bundle -->
+    <?php require_once(ROOT_DIR."/includes/footer.php")?>

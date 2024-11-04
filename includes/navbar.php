@@ -19,10 +19,9 @@
                         <a class="nav-link" href="cart.php">Cart</a>
                     </li>
 
-                     <!-- Dropdown for Signed-in User -->
                       <!-- if nakaset yung $_Sessionfullname] dun lang lalabas angname ng user-->
                         <?php if(isset($_SESSION["fullName"])) {?>
-                      <li class="nav-item dropdown">
+                        <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <?php echo $_SESSION["fullName"]; ?> <!-- Replace with dynamic username-->
                             
