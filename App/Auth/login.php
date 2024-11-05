@@ -27,7 +27,7 @@
                         $_SESSION['fullname'] = $users[0]['fullname'];
                         $_SESSION['is_admin'] = $users[0]['is_admin'];
 
-                        $_SESSION["success"]="Registration successful";
+                        
                         header("location: /index.php");
                         exit;                   
 

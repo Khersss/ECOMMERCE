@@ -22,49 +22,49 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
      //validate user input
     if (trim($productName) == "" || empty($productName)) { 
         $_SESSION["error"] = "Product Name field is empty";
-        header("location: ".BASE_URL."views/admin/products/add.php");
+        header("location: ".BASE_URL."/views/admin/products/add.php");
         exit;
     }
     
     if (trim($category) == "" || empty($category)) { 
         $_SESSION["error"] = "Category field is empty";
-        header("location: ".BASE_URL."views/admin/products/add.php");
+        header("location: ".BASE_URL."/views/admin/products/add.php");
         exit;
     }
     
     if (trim($basePrice) == "" || empty($basePrice)) { 
         $_SESSION["error"] = "Base Price field is empty";
-        header("location: ".BASE_URL."views/admin/products/add.php");
+        header("location: ".BASE_URL."/views/admin/products/add.php");
         exit;
     }
     
     if (trim($numberOfStocks) == "" || empty($numberOfStocks)) { 
         $_SESSION["error"] = "Number of Stocks field is empty";
-        header("location: ".BASE_URL."views/admin/products/add.php");
+        header("location: ".BASE_URL."/views/admin/products/add.php");
         exit;
     }
     
     if (trim($unitPrice) == "" || empty($unitPrice)) { 
         $_SESSION["error"] = "Unit Price field is empty";
-        header("location: ".BASE_URL."views/admin/products/add.php");
+        header("location: ".BASE_URL."/views/admin/products/add.php");
         exit;
     }
     
     if (trim($totalPrice) == "" || empty($totalPrice)) { 
         $_SESSION["error"] = "Total Price field is empty";
-        header("location: ".BASE_URL."views/admin/products/add.php");
+        header("location: ".BASE_URL."/views/admin/products/add.php");
         exit;
     }
     
     if (trim($description) == "" || empty($description)) { 
         $_SESSION["error"] = "Description field is empty";
-        header("location: ".BASE_URL."views/admin/products/add.php");
+        header("location: ".BASE_URL."/views/admin/products/add.php");
         exit;
     }
     if (!isset($_FILES['productImage']) || $_FILES['productImage']['error'] !== 0) {
         $_SESSION["error"] = "No image attached";
     
-        header("location: ".BASE_URL."views/admin/products/add.php");
+        header("location: ".BASE_URL."/views/admin/products/add.php");
       exit;
     }
  
@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if(!$stmt->execute($data)){
             $_SESSION["error"] = "failed to insert reccord";
-            header("location: ".BASE_URL."views/admin/products/add.php");
+            header("location: ".BASE_URL."/views/admin/products/add.php");
             exit;
         }
 
@@ -95,12 +95,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $error = processImage($lastId);
             if($error){
                 $_SESSION["error"] = $error;
-               header("location: ".BASE_URL."views/admin/products/add.php");
+               header("location: ".BASE_URL."/views/admin/products/add.php");
                 exit;
             }
         
         $_SESSION["success"] = "product added successfully";
-        header("location: ".BASE_URL."views/admin/products/index.php");
+        header("location: ".BASE_URL."/views/admin/products/index.php");
         exit;
 
         } catch(PDOException $e){

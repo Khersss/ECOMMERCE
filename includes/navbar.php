@@ -23,11 +23,11 @@
                     <?php if(isset($_SESSION["username"]) && (isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] == "1")) {?>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_URL; ?>views/admin/products/index.php">Products</a>
+                        <a class="nav-link" href="<?php echo BASE_URL; ?>/views/admin/products/index.php">Products</a>
                     </li>
                     <?php }?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo BASE_URL; ?>cart.php">Cart</a>
+                        <a class="nav-link" href="<?php echo BASE_URL; ?>/cart.php">Cart</a>
                     </li>
 
                      <!-- Dropdown for Signed-in User -->
@@ -41,7 +41,7 @@
                             <li><a class="dropdown-item" href="profile.html">Profile</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
-                                <form action="<?php echo BASE_URL; ?>logout.php" method="POST">
+                                <form action="<?php echo BASE_URL; ?>/logout.php" method="POST">
                                 <button class="dropdown-item">Logout</button>
                             </form>
                             </li>

@@ -49,7 +49,7 @@ require_once(ROOT_DIR."includes/navbar.php");
                     </div>
                     <?php } ?>
 
-        <form action="<?php echo BASE_URL;?>app/product/create_product.php" method="POST" enctype="multipart/form-data">
+        <form action="<?php echo BASE_URL;?>/app/product/create_product.php" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <!-- Left Column: Product Image -->
                 <div class="col-md-4 mb-3">
