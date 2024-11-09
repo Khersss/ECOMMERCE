@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $fullname = $_POST["fullName"];
+    $fullName = $_POST["fullName"];
     $username = $_POST["username"];
     $password = $_POST["password"];
     $confirmPassword = $_POST["confirmPassword"];
@@ -39,13 +39,14 @@
                 }
 
             } catch (Exception $e){
-                echo "Connection Failed: " . $e->getMessage();
+                header("location: /registration.php");
+                $_SESSION["error"]="Username Already Exist";
                 }
             
         }
         else{
             header("location: /registration.php");
-            $_SESSION["error"]="Insert error";
+            $_SESSION["error"]="Password Incorrect";
             exit;
         }              
     }
