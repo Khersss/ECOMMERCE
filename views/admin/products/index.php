@@ -16,7 +16,9 @@ if(isset($_SESSION["success"])){
 include(ROOT_DIR. "app/product/get_product.php")
 ?>
 
+<!-- Navbar -->
 <?php require_once(ROOT_DIR."includes/navbar.php"); ?>
+    
     <!-- page guard  -->
     <?php require_once(ROOT_DIR."views/components/page-guard.php"); ?>
     
@@ -59,5 +61,5 @@ include(ROOT_DIR. "app/product/get_product.php")
         </div>
     </div> 
 
-    <!-- Bootstrap 5 JS Bundle -->
-    <?php require_once(ROOT_DIR."/includes/footer.php")?>
+<!-- Bootstrap 5 JS Bundle -->
+<?php require_once(ROOT_DIR."/includes/footer.php")?>

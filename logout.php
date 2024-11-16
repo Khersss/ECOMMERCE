@@ -23,5 +23,5 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         </div>
     </div>
 
-<!-- Bootstrap 5 JS Bundle -->
-<?php require_once("includes/footer.php")?>
+
+<?php require_once(ROOT_DIR."includes/footer.php")?>
