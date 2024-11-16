@@ -82,7 +82,5 @@ require_once("includes/header.php")
         </div>
     </div>
 
-    <!-- Bootstrap 5 JS Bundle -->
-    <?php require_once("includes/footer.php")?>       
-</body>
-</html>
+    <!-- Footer -->
+<?php require_once(ROOT_DIR."includes/footer.php")?>    

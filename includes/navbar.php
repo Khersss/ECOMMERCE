@@ -7,7 +7,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL; ?> index.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="<?php echo BASE_URL; ?>/index.php">Home</a>
                     </li>
 
                     <!-- only display login and register link when there is no session -->    

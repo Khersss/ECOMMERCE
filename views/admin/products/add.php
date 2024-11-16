@@ -159,5 +159,5 @@ require_once(ROOT_DIR."includes/navbar.php");
     }
 </script>  
 
-<!-- Bootstrap 5 JS Bundle -->
+<!-- Footer -->
 <?php require_once(ROOT_DIR."/includes/footer.php")?>

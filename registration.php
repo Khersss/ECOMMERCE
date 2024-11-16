@@ -1,4 +1,5 @@
     <?php 
+
     session_start();
     require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
     require_once("includes/header.php");
@@ -13,6 +14,7 @@
         $messSucc = $_SESSION["success"];
         unset($_SESSION["success"]);
     }
+
     ?>
 
     <!-- Navbar -->
@@ -30,15 +32,14 @@
 
                     <?php if(isset($messSucc)){?>
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
-                     <strong><?php echo $messSucc; ?></strong> 
+                        <strong><?php echo $messSucc; ?></strong> 
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                     <?php } ?>
 
                     <?php if(isset($messErr)){?>
-
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                     <strong>  <strong><?php echo $messErr; ?></strong> </strong> 
+                        <strong><?php echo $messErr; ?></strong> 
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                     <?php } ?>

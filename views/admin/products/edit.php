@@ -7,8 +7,8 @@ include(ROOT_DIR.'app/config/DatabaseConnect.php');
     $conn = $db->connectDB();
 
     $product =[];
-    $id = @$_GET['id'];
-
+    $id = $_GET['id'];
+    
     try {
         $sql  = "SELECT * FROM products WHERE products.id = $id "; //select statement here
         $stmt = $conn->prepare($sql);
@@ -64,6 +64,7 @@ require_once(ROOT_DIR."includes/navbar.php");
                 <div class="col-md-4 mb-3">
                     <label for="productImage" class="form-label">Product Image</label>
                     <input type="file" class="form-control" id="productImage" accept="image/*" name="productImage" required>
+                    
                     <div class="mt-3">
                         <img id="imagePreview" src="<?php echo BASE_URL.$product["image_url"];?> " alt="Image Preview" class="img-fluid" style="display: block; max-height: 300px;">
                     </div> 
@@ -173,5 +174,5 @@ require_once(ROOT_DIR."includes/navbar.php");
         document.getElementById("totalPrice").value = totalPrice.toFixed(2);
     }
 </script>    
-    <!-- Bootstrap 5 JS Bundle -->
+    <!-- Footer -->
     <?php require_once(ROOT_DIR."/includes/footer.php")?>

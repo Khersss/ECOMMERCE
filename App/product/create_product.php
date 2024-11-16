@@ -11,16 +11,23 @@ $db = new DatabaseConnect();
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
    
-    $productName = htmlspecialchars($_POST["productName"]);
-    $category = htmlspecialchars($_POST["category"]);
-    $basePrice = htmlspecialchars($_POST["basePrice"]);
-    $numberOfStocks = htmlspecialchars($_POST["numberOfStocks"]);
-    $unitPrice = htmlspecialchars($_POST["unitPrice"]);
-    $totalPrice = htmlspecialchars($_POST["totalPrice"]);
-    $description = htmlspecialchars($_POST["description"]);
+    $productName      = htmlspecialchars($_POST["productName"]);
+    $productDesc      = htmlspecialchars($_POST["description"]);
+    $category         = htmlspecialchars($_POST["category"]);
+    $basePrice        = htmlspecialchars($_POST["basePrice"]);
+    $numberOfStocks   = htmlspecialchars($_POST["numberOfStocks"]);
+    $unitPrice        = htmlspecialchars($_POST["unitPrice"]);
+    $totalPrice       = htmlspecialchars($_POST["totalPrice"]);
+    $description      = htmlspecialchars($_POST["description"]);
     
      //validate user input
     if (trim($productName) == "" || empty($productName)) { 
+        $_SESSION["error"] = "Product Name field is empty";
+        header("location: ".BASE_URL."/views/admin/products/add.php");
+        exit;
+    }
+
+    if (trim($productDesc) == "" || empty($productDesc)) { 
         $_SESSION["error"] = "Product Name field is empty";
         header("location: ".BASE_URL."/views/admin/products/add.php");
         exit;
@@ -127,21 +134,25 @@ function processImage($id){
     $fileExt = pathinfo($fileName, PATHINFO_EXTENSION);
     $hashedName = $newFileName.'.'.$fileExt;
 
-    $destination = ROOT_DIR.'public/uploads/products/'.$hashedName;
+    $destination = ROOT_DIR.'/public/uploads/products/'.$hashedName;
     if(!move_uploaded_file($path,$destination)){
         return "transferring of image returns an error";
 
     }
 
-    $imageUrl ='public/uploads/products/'.$hashedName;
+    $imageUrl ='/public/uploads/products/'.$hashedName;
 
     $conn = $db->connectDB();
-    $sql = "UPDATE products  SET image_url = :p_image_url WHERE id = :p_id; ";
+    $sql = "UPDATE products  SET image_url = :p_image_url WHERE id = :p_id";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':p_image_url',$imageUrl);
     $stmt->bindParam(':p_id',$id);
 
-    $stmt->execute();
+    //execute the query then throw an error if failed
+    if(!$stmt->execute()){
+        return "Failed to update the image url field";
+    };
 
+    //return null if no error
     return null;
 }
