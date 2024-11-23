@@ -19,7 +19,7 @@ require_once(ROOT_DIR."includes/navbar.php");
 ?>
 
 <!-- add page-guard -->
-<?php require_once(ROOT_DIR."/views/components/page-guard.php"); ?>  
+<?php require_once(ROOT_DIR."views/components/page-guard.php"); ?>  
 
 <!DOCTYPE html>
 <html lang="en">

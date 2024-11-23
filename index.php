@@ -59,16 +59,6 @@ session_start();
             } 
         ?>  
 
-            <div class="col-md-3">
-                <div class="card">
-                    <img src="https://via.placeholder.com/250x250" class="card-img-top" alt="Product 1">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Product 1</h5>
-                        <p class="card-text">$49.99</p>
-                        <a href="#" class="btn btn-success">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     

@@ -7,14 +7,13 @@ include(ROOT_DIR.'app/config/DatabaseConnect.php');
     $conn = $db->connectDB();
 
     $product =[];
-    $id = $_GET['id'];
+    $id =@$_GET['id'];
     
     try {
         $sql  = "SELECT * FROM products WHERE products.id = $id "; //select statement here
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $product = $stmt->fetch();   
-        
 
     } catch (PDOException $e){
        echo "Connection Failed: " . $e->getMessage();
@@ -39,7 +38,7 @@ require_once(ROOT_DIR."includes/navbar.php");
 ?>
 
 <!-- add page-guard -->
-<?php require_once(ROOT_DIR."/views/components/page-guard.php"); ?>  
+<?php require_once(ROOT_DIR."views/components/page-guard.php"); ?>  
 
     <!-- Product Maintenance Form -->
     <div class="container my-5">
