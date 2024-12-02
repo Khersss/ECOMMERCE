@@ -49,5 +49,4 @@ if(isset($_SESSION["error"]))
         </div>
     </div>
 </div>
-
 <?php require_once(ROOT_DIR."includes/footer.php")?>

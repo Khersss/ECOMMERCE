@@ -61,6 +61,5 @@ session_start();
 
         </div>
     </div>
-    
-    <!-- Footer -->
+<!-- Footer -->
 <?php require_once(ROOT_DIR."includes/footer.php")?>

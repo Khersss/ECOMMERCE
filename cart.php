@@ -40,7 +40,6 @@ if(isset($_SESSION["success"])){
 ?>
     <!-- Navbar -->
     <?php require_once("includes/navbar.php"); ?>
-
     <!-- Shopping Cart -->
     <div class="container content my-5">
         <!-- message response -->

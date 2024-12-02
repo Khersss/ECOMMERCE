@@ -69,5 +69,4 @@ if(isset($_SESSION["success"]))
             </div>
         </div>
     </div>
-
 <?php require_once(ROOT_DIR."includes/footer.php")?>

@@ -71,7 +71,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 header("location: ".BASE_URL."/cart.php");
                 exit;
             }
-
             // update the products table to deduct stocks 
             $sql = "UPDATE products SET products.stocks = (products.stocks - :p_quantity) WHERE products.id = :p_product_id AND products.stocks >= :p_quantity ";
             $stmt = $conn->prepare($sql);
@@ -100,7 +99,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                  ':p_total_order'    => $totalOrder,
                  ':p_delivery_fee'   => $deliveryFee,
                  ':p_total_amount'   => $totalAmount];
-                 
+
         if(!$stmt->execute($data)){
             $_SESSION["error"] = "Failed to insert record to orders table";
             $conn->rollBack();

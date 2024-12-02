@@ -33,5 +33,4 @@ require_once(ROOT_DIR."includes/header.php");
             </div>
         </div>
     </div>
-
 <?php require_once(ROOT_DIR."includes/footer.php")?>

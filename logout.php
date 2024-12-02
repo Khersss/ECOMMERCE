@@ -20,5 +20,4 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             </div>
         </div>
     </div>
-
 <?php require_once(ROOT_DIR."includes/footer.php")?>

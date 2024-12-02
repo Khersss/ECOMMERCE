@@ -148,7 +148,6 @@ if(isset($_SESSION["success"])){
             quantityInput.value = currentValue - 1;
         }
     });
-
     document.getElementById('increment-btn').addEventListener('click', function() {
         let quantityInput = document.getElementById('quantity');
         let currentValue = parseInt(quantityInput.value);
