@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
 require_once(ROOT_DIR."includes/header.php");
@@ -18,10 +17,8 @@ include(ROOT_DIR."app/product/get_product.php")
 
 <!-- Navbar -->
 <?php require_once(ROOT_DIR."includes/navbar.php"); ?>
-    
     <!-- page guard  -->
-    <?php require_once(ROOT_DIR."views/components/page-guard.php"); ?>
-    
+    <?php require_once(ROOT_DIR."views/components/page-guard.php"); ?> 
     <!-- Page Header -->
     <div class="container mt-5">
         <div class="d-flex justify-content-between align-items-center">
@@ -35,14 +32,14 @@ include(ROOT_DIR."app/product/get_product.php")
                 <strong><?php echo $messSuc; ?></strong> 
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            <?php } ?>
+        <?php } ?>
 
-            <?php if(isset($messErr)){ ?>
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong><?php echo $messErr; ?></strong> 
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                <?php } ?>
+        <?php if(isset($messErr)){ ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong><?php echo $messErr; ?></strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php } ?>
 
         <p class="text-center">Manage all products in the catalog</p>
         <hr>
@@ -60,6 +57,5 @@ include(ROOT_DIR."app/product/get_product.php")
             ?>  
         </div>
     </div> 
-
 <!-- Footer -->
 <?php require_once(ROOT_DIR."/includes/footer.php")?>

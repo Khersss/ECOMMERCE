@@ -37,19 +37,20 @@ require_once(ROOT_DIR."includes/navbar.php");
     <!-- Product Maintenance Form -->
     <div class="container my-5">
         <h2>Product Maintenance</h2>
-        <?php if(isset($messSuc)){ ?>
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <strong><?php echo $messSuc; ?></strong> 
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <?php } ?>
 
-                    <?php if(isset($messErr)){ ?>
-                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        <strong><?php echo $messErr; ?></strong> 
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
-                    <?php } ?>
+        <!-- message response -->
+        <?php if(isset($messSuc)){ ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong><?php echo $messSuc; ?></strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php } ?>
+        <?php if(isset($messErr)){ ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong><?php echo $messErr; ?></strong> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php } ?>
 
         <form action="<?php echo BASE_URL;?>/app/product/create_product.php" method="POST" enctype="multipart/form-data">
             <div class="row">

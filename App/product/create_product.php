@@ -5,12 +5,11 @@ if(!isset($_SESSION))
 }
 
 require_once(__DIR__."/../config/Directories.php"); 
-include("..\config\DatabaseConnect.php"); 
+include("../config/DatabaseConnect.php"); 
 
 $db = new DatabaseConnect(); 
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-   
     $productName      = htmlspecialchars($_POST["productName"]);
     $productDesc      = htmlspecialchars($_POST["description"]);
     $category         = htmlspecialchars($_POST["category"]);
@@ -26,43 +25,36 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         header("location: ".BASE_URL."/views/admin/products/add.php");
         exit;
     }
-
     if (trim($productDesc) == "" || empty($productDesc)) { 
         $_SESSION["error"] = "Product Name field is empty";
         header("location: ".BASE_URL."/views/admin/products/add.php");
         exit;
     }
-    
     if (trim($category) == "" || empty($category)) { 
         $_SESSION["error"] = "Category field is empty";
         header("location: ".BASE_URL."/views/admin/products/add.php");
         exit;
     }
-    
     if (trim($basePrice) == "" || empty($basePrice)) { 
         $_SESSION["error"] = "Base Price field is empty";
         header("location: ".BASE_URL."/views/admin/products/add.php");
         exit;
     }
-    
     if (trim($numberOfStocks) == "" || empty($numberOfStocks)) { 
         $_SESSION["error"] = "Number of Stocks field is empty";
         header("location: ".BASE_URL."/views/admin/products/add.php");
         exit;
     }
-    
     if (trim($unitPrice) == "" || empty($unitPrice)) { 
         $_SESSION["error"] = "Unit Price field is empty";
         header("location: ".BASE_URL."/views/admin/products/add.php");
         exit;
     }
-    
     if (trim($totalPrice) == "" || empty($totalPrice)) { 
         $_SESSION["error"] = "Total Price field is empty";
         header("location: ".BASE_URL."/views/admin/products/add.php");
         exit;
     }
-    
     if (trim($description) == "" || empty($description)) { 
         $_SESSION["error"] = "Description field is empty";
         header("location: ".BASE_URL."/views/admin/products/add.php");
@@ -74,21 +66,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         header("location: ".BASE_URL."/views/admin/products/add.php");
       exit;
     }
- 
 
     try{
-    $conn = $db->connectDB();
-    $sql ="INSERT INTO products (product_name, product_description, category_id, base_price, stocks, unit_price, total_price, created_at, updated_at) 
-    values (:p_product_name, :p_product_description, :p_category_id, :p_base_price, :p_stocks, :p_unit_price, :p_total_price, NOW(), NOW())";
-    $stmt = $conn->prepare($sql);
+        $conn = $db->connectDB();
+        $sql ="INSERT INTO products (product_name, product_description, category_id, base_price, stocks, unit_price, total_price, created_at, updated_at) 
+        values (:p_product_name, :p_product_description, :p_category_id, :p_base_price, :p_stocks, :p_unit_price, :p_total_price, NOW(), NOW())";
+        $stmt = $conn->prepare($sql);
 
-    $data = [':p_product_name'        => $productName,
-         ':p_product_description' => $description,
-         ':p_category_id'         => $category,
-         ':p_base_price'          => $basePrice,
-         ':p_stocks'              => $numberOfStocks,
-         ':p_unit_price'          => $unitPrice,
-         ':p_total_price'         => $totalPrice ];
+        $data = [':p_product_name'        => $productName,
+             ':p_product_description' => $description,
+             ':p_category_id'         => $category,
+             ':p_base_price'          => $basePrice,
+             ':p_stocks'              => $numberOfStocks,
+             ':p_unit_price'          => $unitPrice,
+             ':p_total_price'         => $totalPrice ];
 
         if(!$stmt->execute($data)){
             $_SESSION["error"] = "failed to insert reccord";
@@ -97,12 +88,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
 
         $lastId = $conn->lastInsertId();
-        
 
         $error = processImage($lastId);
             if($error){
                 $_SESSION["error"] = $error;
-               header("location: ".BASE_URL."/views/admin/products/add.php");
+                header("location: ".BASE_URL."/views/admin/products/add.php");
                 exit;
             }
         
@@ -114,7 +104,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             echo "Connection Failed" . $e->getMessage();
             $db=null;
         }           
-
 }
 
 function processImage($id){
@@ -124,17 +113,15 @@ function processImage($id){
     $fileName     = $_FILES['productImage']['name']; //file name
     $fileType     =mime_content_type($path);
 
-
     if($fileType != 'image/jpeg' && $fileType  != 'image/png'){
         return "File is not jpg/png file";
     }
     
-    
     $newFileName = md5(uniqid($fileName, true));
     $fileExt = pathinfo($fileName, PATHINFO_EXTENSION);
     $hashedName = $newFileName.'.'.$fileExt;
-
     $destination = ROOT_DIR.'/public/uploads/products/'.$hashedName;
+    
     if(!move_uploaded_file($path,$destination)){
         return "transferring of image returns an error";
 

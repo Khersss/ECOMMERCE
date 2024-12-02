@@ -1,11 +1,10 @@
-
 <?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/app/config/Directories.php");
 require_once("includes/header.php")
 ?>
 
-    <!-- Navbar -->
-    <?php require_once("includes/navbar.php")?>
+<!-- Navbar -->
+<?php require_once("includes/navbar.php")?>
 
     <!-- Product Details -->
     <div class="container content mt-5">

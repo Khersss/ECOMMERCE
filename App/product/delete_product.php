@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 require_once(__DIR__."/../config/Directories.php"); 
 include(ROOT_DIR.'app/config/DatabaseConnect.php');
 
@@ -20,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         header("location: ".BASE_URL."/views/admin/products/index.php");
         exit;
     }
-     catch (PDOException $e){
+    catch (PDOException $e){
        echo "Connection Failed: " . $e->getMessage();
        $db = null;
     } 

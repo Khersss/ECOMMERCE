@@ -65,7 +65,7 @@ require_once(ROOT_DIR."includes/navbar.php");
                     <input type="file" class="form-control" id="productImage" accept="image/*" name="productImage" required>
                     
                     <div class="mt-3">
-                        <img id="imagePreview" src="<?php echo BASE_URL.$product["image_url"];?> " alt="Image Preview" class="img-fluid" style="display: block; max-height: 300px;">
+                        <img id="imagePreview" src="<?php echo BASE_URL."/".$product["image_url"];?> " alt="Image Preview" class="img-fluid" style="display: block; max-height: 300px;">
                     </div> 
 
                 </div>
@@ -134,7 +134,7 @@ require_once(ROOT_DIR."includes/navbar.php");
                     <!-- Save Button (aligned to right) -->
                     <div class="row">
                         <div class="col-md-6 d-grid gap-2">
-                        <a href="<?php echo BASE_URL; ?>views/admin/products/index.php" class="btn btn-outline-secondary">Cancel</a>                        </div>
+                        <a href="<?php echo BASE_URL; ?>/views/admin/products/index.php" class="btn btn-outline-secondary">Cancel</a>                        </div>
                         <div class="col-md-6 d-grid gap-2">
                             <button type="submit" class="btn btn-primary">Update Product</button>
                         </div>

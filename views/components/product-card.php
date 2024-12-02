@@ -10,8 +10,8 @@
             <a href="<?php echo BASE_URL;?>/views/admin/products/edit.php?id=<?php echo $product["id"]; ?>"
             class="btn btn-primary">Edit Product</a>
             <form action="<?php echo BASE_URL;?>/app/product/delete_product.php" method="POST" class="d-inline" >
-            <input type="hidden" name="id" value="<?php echo $product["id"]; ?>">
-            <button type="submit" onclick="return confirm('Are you sure you want to delete this product?')" class="btn btn-danger">Delete Product</button>
+                <input type="hidden" name="id" value="<?php echo $product["id"]; ?>">
+                <button type="submit" onclick="return confirm('Are you sure you want to delete this product?')" class="btn btn-danger">Delete Product</button>
             </form>
         </div> 
      </div>

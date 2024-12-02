@@ -5,10 +5,8 @@
     $password = $_POST["password"];
     $confirmPassword = $_POST["confirmPassword"];
 
-    if($_SERVER["REQUEST_METHOD"] == "POST")
-    {
-        if(trim($password) == trim($confirmPassword))
-        {  
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        if(trim($password) == trim($confirmPassword)){  
             $host = "localhost";
             $database = "ecommb2";
             $dbuserame = "root";
